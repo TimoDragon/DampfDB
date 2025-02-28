@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, numberAttribute} from '@angular/core';
 
 @Component({
   selector: 'game-card',
@@ -7,7 +7,9 @@ import {Component, Input} from '@angular/core';
   styleUrl: './game-card.component.css'
 })
 export class GameCardComponent {
-  @Input() gameId: string | undefined;
+  @Input({transform: numberAttribute}) gameId: number | undefined;
 
-
+  onClick(): void {
+    window.location.href=`/game/${this.gameId}`
+  }
 }
