@@ -1,0 +1,58 @@
+.game-top {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.image {
+    width: 60%;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+.game-information {
+
+}
+
+.title {
+    color: white;
+    font-size: 28pt;
+}
+
+.description {
+    color: white;
+    font-size: 18pt;
+    max-width: 350px;
+}
+
+.rating {
+    margin-top: 10px;
+    color: white;
+    font-size: 14pt;
+}
+
+.price {
+    color: white;
+    font-size: 18pt;
+    margin-top: 10px;
+}
+
+.test {
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #404040;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.test:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}

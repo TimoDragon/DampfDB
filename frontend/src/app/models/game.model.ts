@@ -1,4 +1,4 @@
-interface Game {
+export interface Game {
     gameID: number,
     title: string,
     genre: Genre,
@@ -9,12 +9,12 @@ interface Game {
     developer: Developer,
 }
 
-interface Genre {
+export interface Genre {
     genreId: number,
     name: string,
 }
 
-interface Developer {
+export interface Developer {
     developerID: number,
     name: string,
 }

@@ -2,10 +2,12 @@ from flask import Flask, jsonify, request
 from dotenv import load_dotenv
 import mysql.connector
 import os
+from flask_cors import CORS  # Import Flask-CORS
 
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes and origins
 
 db_host = os.getenv('MYSQL_HOST')
 db_user = os.getenv('MYSQL_USER')
@@ -31,7 +33,7 @@ def get_db_connection():
 def get_games():
     conn = get_db_connection()
     if conn is None:
-        return jsonify({'error', 'Database connection failed'}), 500
+        return jsonify({'error': 'Database connection failed'}), 500
 
     cursor = conn.cursor()
     try:
@@ -63,25 +65,27 @@ def get_game_by_id(game_id):
     conn = get_db_connection()
     if conn is None:
         return jsonify({'error', 'Database connection failed'}), 500
-    
-    print(game_id)
 
     cursor = conn.cursor()
     try:
         cursor.execute('SELECT gameID, title, genreID, rating, description, downloads, price, developerID FROM Game WHERE gameID = %s', (game_id,))
         game = cursor.fetchone()
 
-        game = {
-            'gameId': game[0],
-            'title': game[1],
-            'rating': game[2],
-            'description': game[3],
-            'downloads': game[4],
-            'price': game[5],
-            'developerID': game[6],
-        }
+        if game:  # Check if a game was found
+            game_data = {
+                'gameId': game[0],
+                'title': game[1],
+                'genreID': game[2],
+                'rating': game[3],
+                'description': game[4],
+                'downloads': game[5],
+                'price': game[6],
+                'developerID': game[7],
+            }
+            return jsonify(game_data), 200
+        else:
+            return jsonify({'error': 'Game not found'}), 404  # Return 404 if not found
 
-        return jsonify(game), 200
     except mysql.connector.Error as err:
         print(f'Error quering databse: {err}')
         return jsonify({'error': 'Database query failed'}), 500
