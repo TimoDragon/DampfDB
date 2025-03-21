@@ -1,9 +1,10 @@
 <div class="game" (click)="onClick()">
     <div>
-        <img class="image" src="https://www.gtagaming.com/images/26940/1395735247_frankinwithgun.jpg" alt="">
+        <img class="image" [src]="'/images/' + this.game?.gameID + '.jpg'" [alt]=this.game?.title>
     </div>
     <div class="test">
-        <label class="title">Grand Theft Auto V</label>
-        <p class="description">Made by Rockstar Games</p>
+        <label class="title">{{ this.game?.title }}</label>
+        <p class="developer">By {{ this.game?.developer?.name }}</p>
+        <p class="description">{{ this.game?.description }}</p>
     </div>
 </div>

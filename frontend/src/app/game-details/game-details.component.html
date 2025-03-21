@@ -1,19 +1,20 @@
 <div>
     <div class="game-top">
-        <img class="image" src="https://www.gtagaming.com/images/26940/1395735247_frankinwithgun.jpg" alt="">
+        <img class="image" [src]="'/images/' + this.game()?.gameID + '.jpg'" [alt]=this.game()?.title>
 
-        <div class="test">
+        <div class="game-information">
             <p class="title">{{ game()?.title }}</p>
 
-            <div class="description">
-                <label>{{ game()?.description }}</label>
-            </div>
             <div class="rating">
                 <label>Rating: {{ game()?.rating }}/5</label>
             </div>
 
             <div class="price">
                 <label>{{ game()?.price }}€</label>
+            </div>
+
+            <div class="description">
+                <label>{{ game()?.description }}</label>
             </div>
         </div>
     </div>

@@ -37,19 +37,24 @@ def get_games():
 
     cursor = conn.cursor()
     try:
-        cursor.execute('SELECT gameID, title, genreID, rating, description, downloads, price, developerID FROM Game')
+        cursor.execute('SELECT Game.gameID, Game.title, Game.genreID, Game.rating, Game.description, Game.downloads, Game.price, Game.developerID, Developer.name FROM Game JOIN Developer ON Game.developerID = Developer.developerID')
         games = cursor.fetchall()
 
         game_list = []
         for row in games:
             game_list.append({
-                'gameId': row[0],
+                'gameID': row[0],
                 'title': row[1],
-                'rating': row[2],
-                'description': row[3],
-                'downloads': row[4],
-                'price': row[5],
-                'developerID': row[6],
+                'genreId': row[2],
+                'rating': row[3],
+                'description': row[4],
+                'downloads': row[5],
+                'price': row[6],
+                'developer':
+                    {
+                        'developerID': row[7],
+                        'name': row[8],
+                    }
             })
 
         return jsonify(game_list), 200
@@ -68,12 +73,12 @@ def get_game_by_id(game_id):
 
     cursor = conn.cursor()
     try:
-        cursor.execute('SELECT gameID, title, genreID, rating, description, downloads, price, developerID FROM Game WHERE gameID = %s', (game_id,))
+        cursor.execute('SELECT Game.gameID, Game.title, Game.genreID, Game.rating, Game.description, Game.downloads, Game.price, Game.developerID, Developer.name FROM Game INNER JOIN Developer ON Game.developerID = Developer.developerID WHERE gameID = %s', (game_id,))
         game = cursor.fetchone()
 
         if game:  # Check if a game was found
             game_data = {
-                'gameId': game[0],
+                'gameID': game[0],
                 'title': game[1],
                 'genreID': game[2],
                 'rating': game[3],

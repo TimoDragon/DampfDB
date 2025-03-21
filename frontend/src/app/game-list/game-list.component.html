@@ -1,3 +1,5 @@
 <div>
-    <game-card gameId="1" (click)="onClick()"></game-card>
+    @for (game of this.games; track game) {
+        <game-card [game]="game" (click)="onClick()"></game-card>
+    }
 </div>

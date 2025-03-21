@@ -17,4 +17,8 @@ export class GameGateway {
     public getGame(gameId: number): Observable<Game> {
         return this.http.get<Game>(`${this.baseUrl}/game/${gameId}`)
     }
+
+    public getGames(): Observable<Game[]> {
+        return this.http.get<Game[]>(`${this.baseUrl}/games`);
+    }
 }

@@ -1,6 +1,6 @@
 .game-top {
     display: flex;
-    justify-content: space-evenly;
+    gap: 50px;
     margin-top: 30px;
 }
 
@@ -16,10 +16,6 @@
     transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 }
 
-.game-information {
-
-}
-
 .title {
     color: white;
     font-size: 28pt;
@@ -29,10 +25,10 @@
     color: white;
     font-size: 18pt;
     max-width: 350px;
+    margin-top: 10px;
 }
 
 .rating {
-    margin-top: 10px;
     color: white;
     font-size: 14pt;
 }
@@ -43,7 +39,7 @@
     margin-top: 10px;
 }
 
-.test {
+.game-information {
     padding-left: 20px;
     padding-right: 20px;
     background-color: #404040;
@@ -51,7 +47,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.test:hover {
+.game-information:hover {
     transform: scale(1.1);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;

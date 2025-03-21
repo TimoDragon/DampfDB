@@ -15,4 +15,8 @@ export class GameFacade {
     public getGame(gameId: number): Observable<Game> {
         return this.gameGateway.getGame(gameId);
     }
+
+    public getGames(): Observable<Game[]> {
+        return this.gameGateway.getGames();
+    }
 }

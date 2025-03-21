@@ -18,7 +18,11 @@
 
 .image {
     height: 200px;
+    width: 400px;
     border-radius: 20px;
+    text-align: center;
+    object-fit: cover;
+    object-position: center;
 }
 
 .test {
@@ -29,7 +33,13 @@
     color: white;
     font-size: 22pt;
     margin-left: 20px;
+}
 
+.developer {
+    color: white;
+    font-size: 11pt;
+    margin-top: 0;
+    margin-left: 20px;
 }
 
 .description {
