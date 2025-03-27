@@ -1,0 +1,16 @@
+<div class="home-container">
+    <h2>Featured Game</h2>
+
+    @if (randomGame()) {
+        <div class="featured-game-card">
+            <game-card [game]="randomGame()!"></game-card>
+        </div>
+    } @else {
+        <p class="loading-message">Loading a surprise game...</p>
+    }
+
+    <div class="welcome-message">
+        <p>Welcome to DampfDB! Browse our collection of games.</p>
+        <a routerLink="/games">View All Games</a>
+    </div>
+</div>

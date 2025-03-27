@@ -1,0 +1,23 @@
+<div class="workshop-list-container">
+    <h2>Workshop Entries</h2>
+
+    @if (workshopEntries().length > 0) {
+        <div class="workshop-grid">
+            @for (entry of workshopEntries(); track entry.WEID) {
+                <a [routerLink]="['/workshop', entry.WEID]" class="workshop-card-link">
+                    <div class="workshop-card">
+                        <h3 class="entry-title">{{ entry.title }}</h3>
+                        <p class="entry-game-list">Game: {{ entry.game.title }}</p>
+                        <p class="entry-creator">By: {{ entry.user.name }}</p>
+                        <div class="entry-details">
+                            <span class="entry-category">{{ entry.category }}</span>
+                            <span class="entry-subs">{{ entry.subscriptions }} Subs</span>
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    } @else {
+        <p class="loading-message">Loading workshop entries or none found...</p>
+    }
+</div>

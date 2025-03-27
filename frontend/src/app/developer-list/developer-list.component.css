@@ -1,0 +1,47 @@
+.developer-list-container {
+    padding: 20px;
+    max-width: 800px; /* Limit width */
+    margin: 20px auto; /* Center container */
+    background-color: #3a3a3a; /* Slightly lighter background */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #e0e0e0;
+}
+
+.developer-list {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.developer-item {
+    background-color: #4f4f4f; /* Background for each item */
+    color: white;
+    padding: 12px 15px;
+    margin-bottom: 10px; /* Space between items */
+    border-radius: 5px;
+    font-size: 14pt;
+    transition: background-color 0.2s ease;
+}
+
+.developer-item:hover {
+    background-color: #5a5a5a; /* Slightly lighter on hover */
+}
+
+.dev-id {
+    font-size: 10pt;
+    color: #b0b0b0;
+    margin-left: 10px;
+}
+
+.loading-message {
+    text-align: center;
+    color: #cccccc;
+    font-size: 1.2em;
+    padding: 30px 0;
+}

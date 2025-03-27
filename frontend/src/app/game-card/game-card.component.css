@@ -1,49 +1,76 @@
 .game {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 200px;
-    width: 70%;
-    margin: 0 auto;
-    margin-top: 20px;
-    background-color: #404040;
-    border-radius: 20px;
+    height: 200px; /* Keep height consistent */
+    max-width: 700px; /* Max width for larger screens */
+    margin: 20px auto; /* Center card and add vertical margin */
+    background-color: #404040; /* Main card background */
+    border-radius: 15px; /* Consistent rounding */
     display: flex;
+    overflow: hidden; /* Prevent content spilling out */
+    cursor: pointer; /* Indicate it's clickable */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition back */
 }
 
 .game:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    transform: translateY(-5px) scale(1.02); /* Slightly lift and scale on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .image {
-    height: 200px;
-    width: 400px;
-    border-radius: 20px;
-    text-align: center;
+    height: 200px; /* Match card height */
+    width: 400px; /* Fixed width for image */
+    border-top-left-radius: 15px; /* Match card rounding */
+    border-bottom-left-radius: 15px; /* Match card rounding */
     object-fit: cover;
     object-position: center;
+    flex-shrink: 0; /* Prevent image from shrinking */
+    display: block; /* Remove potential extra space below image */
+    border-right: 1px solid #555; /* Optional: Add a subtle separator line */
 }
 
-.test {
-    margin-top: 10px;
+/* --- Adjusted styling for the text content area --- */
+.text-content-box {
+    /* Removed background-color to inherit from .game */
+    /* Removed border-radius as it's now part of the main card */
+    padding: 20px; /* Increased padding */
+    display: flex;
+    flex-direction: column; /* Stack text vertically */
+    justify-content: flex-start; /* Align text to the top */
+    flex-grow: 1; /* Allow text box to fill remaining space */
+    overflow: hidden; /* Prevent text overflow */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .title {
     color: white;
-    font-size: 22pt;
-    margin-left: 20px;
+    font-size: 18pt; /* Adjusted size */
+    margin: 0 0 8px 0; /* Increased bottom margin */
+    font-weight: bold;
+    line-height: 1.2;
+    white-space: nowrap; /* Prevent title wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis if title is too long */
 }
 
 .developer {
-    color: white;
-    font-size: 11pt;
-    margin-top: 0;
-    margin-left: 20px;
+    color: #b0b0b0; /* Lighter grey for developer */
+    font-size: 11pt; /* Adjusted size */
+    margin: 0 0 15px 0; /* Increased bottom margin */
+    line-height: 1.2;
+    font-style: italic; /* Maybe italicize? */
 }
 
 .description {
-    color: white;
-    font-size: 14pt;
-    margin-left: 20px;
+    color: #dcdcdc; /* Slightly lighter grey for description */
+    font-size: 12pt; /* Adjusted size */
+    margin: 0;
+    line-height: 1.5; /* Better line spacing */
+    /* Limit description lines shown in card view */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Show max 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+/* Removed hover effect from text-content-box */

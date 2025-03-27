@@ -1,0 +1,29 @@
+<div class="details-container">
+    @if (workshopEntry(); as entry) {
+        <h2 class="entry-title-detail">{{ entry.title }}</h2>
+
+        <div class="metadata">
+            <span class="detail-category">{{ entry.category }}</span>
+            <span class="detail-separator">|</span>
+            <span class="detail-creator">Created by: {{ entry.user.name }}</span>
+            <span class="detail-separator">|</span>
+            <span class="detail-game">
+        For Game: <a [routerLink]="['/game', entry.game.gameID]">{{ entry.game.title }}</a>
+      </span>
+        </div>
+
+        <div class="description-box">
+            <h3>Description</h3>
+            <p>{{ entry.description }}</p>
+        </div>
+
+        <div class="stats-box">
+            <span class="detail-subs">{{ entry.subscriptions | number }} Subscriptions</span>
+        </div>
+
+    } @else if (errorMessage()) {
+        <p class="error-message">{{ errorMessage() }}</p>
+    } @else {
+        <p class="loading-message-detail">Loading details...</p>
+    }
+</div>

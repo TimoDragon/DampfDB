@@ -1,54 +1,85 @@
+/* Center the component's content within the available space */
+:host {
+    display: block; /* Make the host element a block */
+    width: 100%; /* Take full width of parent */
+    max-width: 1000px; /* Optional: Limit the max width */
+    margin: 20px auto; /* Center the component horizontally, add some vertical margin */
+    padding: 0 15px; /* Add some horizontal padding */
+}
+
 .game-top {
     display: flex;
-    gap: 50px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 30px; /* Reduced gap slightly */
     margin-top: 30px;
+    align-items: flex-start; /* Align items to the top */
+    justify-content: center; /* Center items if they wrap or don't fill space */
 }
 
 .image {
-    width: 60%;
-    border-radius: 20px;
+    width: 100%; /* Make image take full width on small screens */
+    max-width: 550px; /* Limit max width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 15px; /* Slightly smaller radius */
+    object-fit: cover;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0; /* Prevent image from shrinking too much */
 }
 
-.image:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-}
-
-.title {
-    color: white;
-    font-size: 28pt;
-}
-
-.description {
-    color: white;
-    font-size: 18pt;
-    max-width: 350px;
-    margin-top: 10px;
-}
-
-.rating {
-    color: white;
-    font-size: 14pt;
-}
-
-.price {
-    color: white;
-    font-size: 18pt;
-    margin-top: 10px;
-}
-
+/* Make the info box flexible */
 .game-information {
-    padding-left: 20px;
-    padding-right: 20px;
     background-color: #404040;
-    border-radius: 20px;
+    border-radius: 15px; /* Match image radius */
+    padding: 20px; /* Consistent padding */
+    flex-grow: 1; /* Allow info box to grow */
+    min-width: 300px; /* Minimum width before wrapping */
+    max-width: 400px; /* Maximum width */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .game-information:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+
+.image:hover {
+    transform: scale(1.05); /* Slightly smaller hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+/* --- Text Styling inside .game-information --- */
+
+.title {
+    color: white;
+    font-size: 24pt; /* Slightly smaller title */
+    margin: 0 0 10px 0; /* Adjust margins */
+    font-weight: bold;
+    display: block; /* Ensure it takes full width */
+    line-height: 1.2;
+}
+
+.rating {
+    color: #cccccc; /* Slightly lighter color for secondary info */
+    font-size: 14pt;
+    margin: 0 0 15px 0; /* Add bottom margin */
+    display: block;
+}
+
+.price {
+    color: #a2e87a; /* Greenish color for price? */
+    font-size: 18pt;
+    font-weight: bold;
+    margin: 0 0 20px 0; /* Add bottom margin */
+    display: block;
+}
+
+.description {
+    color: #e0e0e0; /* Lighter grey for description */
+    font-size: 14pt; /* Adjusted size */
+    margin: 0; /* Remove default margins */
+    display: block;
+    line-height: 1.5; /* Improve readability */
 }

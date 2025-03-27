@@ -1,0 +1,15 @@
+<div class="developer-list-container">
+    <h2>Developers</h2>
+
+    @if (developers().length > 0) {
+        <ul class="developer-list">
+            @for (dev of developers(); track dev.developerID) {
+                <li class="developer-item">
+                    {{ dev.name }} <span class="dev-id">(ID: {{ dev.developerID }})</span>
+                </li>
+            }
+        </ul>
+    } @else {
+        <p class="loading-message">Loading developers or none found...</p>
+    }
+</div>

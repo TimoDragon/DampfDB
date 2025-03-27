@@ -1,21 +1,16 @@
-<div>
-    <div class="game-top">
-        <img class="image" [src]="'/images/' + this.game()?.gameID + '.jpg'" [alt]=this.game()?.title>
+<div class="details-container">
+    @if (game()) {
+        <div class="game-top">
+            <img class="image" [src]="'/images/' + game()?.gameID + '.jpg'" [alt]="game()?.title">
 
-        <div class="game-information">
-            <p class="title">{{ game()?.title }}</p>
-
-            <div class="rating">
-                <label>Rating: {{ game()?.rating }}/5</label>
-            </div>
-
-            <div class="price">
-                <label>{{ game()?.price }}€</label>
-            </div>
-
-            <div class="description">
-                <label>{{ game()?.description }}</label>
+            <div class="game-information">
+                <span class="title">{{ game()?.title }}</span>
+                <span class="rating">Rating: {{ game()?.rating }}/5</span>
+                <span class="price">{{ game()?.price }}€</span>
+                <span class="description">{{ game()?.description }}</span>
             </div>
         </div>
-    </div>
+    } @else {
+        <p style="color: white; text-align: center; font-size: 16pt; margin-top: 50px;">Loading game details...</p>
+    }
 </div>

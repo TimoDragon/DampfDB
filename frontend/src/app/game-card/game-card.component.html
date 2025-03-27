@@ -1,8 +1,8 @@
 <div class="game" (click)="onClick()">
     <div>
-        <img class="image" [src]="'/images/' + this.game?.gameID + '.jpg'" [alt]=this.game?.title>
+        <img class="image" [src]="'/images/' + this.game?.gameID + '.jpg'" [alt]="this.game?.title">
     </div>
-    <div class="test">
+    <div class="text-content-box">
         <label class="title">{{ this.game?.title }}</label>
         <p class="developer">By {{ this.game?.developer?.name }}</p>
         <p class="description">{{ this.game?.description }}</p>
